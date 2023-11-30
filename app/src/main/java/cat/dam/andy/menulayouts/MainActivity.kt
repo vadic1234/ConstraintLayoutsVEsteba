@@ -1,88 +1,123 @@
 package cat.dam.andy.menulayouts
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.FrameLayout
+import android.view.LayoutInflater
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import cat.dam.andy.menulayouts.ui.theme.AppTheme
+
+enum class LayoutId { LAYOUT1, LAYOUT2, LAYOUT3, LAYOUT4 }
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var layout1: View
-    private lateinit var layout2: View
-    private lateinit var layout3: View
-    private lateinit var layout4: View
-    private var selectedLayoutId: Int = R.id.layout1 // Initially selected layout ID
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initMenu()
+        setContent {
+            AppTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.Top,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        var selectedLayoutId by rememberSaveable { mutableStateOf(LayoutId.LAYOUT1) }
+
+                        MyComposeButtons(onButtonClick = { selectedLayoutId = it })
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        when (selectedLayoutId) {
+                            LayoutId.LAYOUT1 -> Layout1()
+                            LayoutId.LAYOUT2 -> Layout2()
+                            LayoutId.LAYOUT3 -> Layout3()
+                            LayoutId.LAYOUT4 -> Layout4()
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    private fun initMenu() {
-        // Initialize layouts here
-        layout1 = layoutInflater.inflate(R.layout.layout1, null)
-        layout2 = layoutInflater.inflate(R.layout.layout2, null)
-        layout3 = layoutInflater.inflate(R.layout.layout3, null)
-        layout4 = layoutInflater.inflate(R.layout.layout4, null)
+    @Composable
+    fun MyComposeButtons(onButtonClick: (LayoutId) -> Unit) {
+        val buttonData = listOf(
+            Pair(LayoutId.LAYOUT1, R.string.btn_layout1),
+            Pair(LayoutId.LAYOUT2, R.string.btn_layout2),
+            Pair(LayoutId.LAYOUT3, R.string.btn_layout3),
+            Pair(LayoutId.LAYOUT4, R.string.btn_layout4)
+        )
 
-        val btn1 = findViewById<Button>(R.id.btnLayout1)
-        val btn2 = findViewById<Button>(R.id.btnLayout2)
-        val btn3 = findViewById<Button>(R.id.btnLayout3)
-        val btn4 = findViewById<Button>(R.id.btnLayout4)
-
-        btn1.setOnClickListener {
-            selectedLayoutId = R.id.layout1
-            setContent(layout1)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.Top
+        ) {
+            buttonData.forEach { (layoutId, stringResourceId) ->
+                Button(
+                    onClick = { onButtonClick(layoutId) },
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(4.dp),
+                ) {
+                    Text(
+                        text = stringResource(id = stringResourceId),
+                    )
+                }
+            }
         }
-        btn2.setOnClickListener {
-            selectedLayoutId = R.id.layout2
-            setContent(layout2)
-        }
-        btn3.setOnClickListener {
-            selectedLayoutId = R.id.layout3
-            setContent(layout3)
-        }
-        btn4.setOnClickListener {
-            selectedLayoutId = R.id.layout4
-            setContent(layout4)
-        }
-
-        // Show the first layout by default
-        setContent(layout1)
     }
 
-    private fun setContent(layout: View) {
-        val frameLayout = findViewById<FrameLayout>(R.id.frameLayout)
-        frameLayout.removeAllViews()
-        frameLayout.addView(layout)
+    @Composable
+    fun Layout1() {
+        LayoutContent(LayoutId.LAYOUT1)
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        // Save the selected layout ID
-        outState.putInt("selectedLayoutId", selectedLayoutId)
+    @Composable
+    fun Layout2() {
+        LayoutContent(LayoutId.LAYOUT2)
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-
-        // Restore the selected layout ID
-        selectedLayoutId = savedInstanceState.getInt("selectedLayoutId")
-
-        // Restore the layout
-        setContent(getLayoutById(selectedLayoutId))
+    @Composable
+    fun Layout3() {
+        LayoutContent(LayoutId.LAYOUT3)
     }
 
-    private fun getLayoutById(id: Int): View {
-        return when (id) {
-            R.id.layout1 -> layout1
-            R.id.layout2 -> layout2
-            R.id.layout3 -> layout3
-            else -> layout4
+    @Composable
+    fun Layout4() {
+        LayoutContent(LayoutId.LAYOUT4)
+    }
+
+    @Composable
+    fun LayoutContent(layoutId: LayoutId) {
+        val context = LocalContext.current
+        val layoutResId = when (layoutId) {
+            LayoutId.LAYOUT1 -> R.layout.layout1
+            LayoutId.LAYOUT2 -> R.layout.layout2
+            LayoutId.LAYOUT3 -> R.layout.layout3
+            LayoutId.LAYOUT4 -> R.layout.layout4
         }
+
+        AndroidView(
+            factory = { context ->
+                LayoutInflater.from(context).inflate(layoutResId, null, false)
+            },
+            modifier = Modifier.fillMaxSize(),
+            update = {
+                // Update the view if needed
+            }
+        )
     }
 }
