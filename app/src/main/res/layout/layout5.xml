@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <!-- Inserta aqui el codi XML del teu Layout -->
+
+
+    <!-- Final del codi XML del teu Layout -->
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowSuperior"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="tv1,tv2,tv3,tv4,tv5"
+        android:background="@color/black"
+        app:layout_constraintHeight_percent="0.2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@color/green"
+        android:text=""
+        android:textColor="#000000"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@color/lime"
+        android:text=""
+        android:textColor="#000000"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@color/green"
+        android:text=""
+        android:textColor="#000000"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@color/lime"
+        android:text=""
+        android:textColor="#000000"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@color/green"
+        android:text=""
+        android:textColor="#000000"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#00FF00"
-    android:orientation="vertical"
-    android:id="@+id/layout2">
-    <!-- Inserta aqui el codi XML del teu Layout -->
+    android:layout_height="match_parent">
 
-    <!-- Final del codi XML del teu Layout -->
+
+    <TextView
+        android:id="@+id/columna1_fila1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/navy"
+    android:text="30%-50%"
+    android:gravity="center"
+        android:textColor="@color/white"
+    app:layout_constraintWidth_percent="0.5"
+    app:layout_constraintHeight_percent="0.3"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/columna1_fila2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/olive"
+    android:text="25%-50%"
+    android:gravity="center"
+        android:textColor="@color/white"
+    app:layout_constraintWidth_percent="0.5"
+    app:layout_constraintHeight_percent="0.25"
+    app:layout_constraintTop_toBottomOf="@id/columna1_fila1"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/columna1_fila3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/green"
+    android:text="45%-50%"
+    android:gravity="center"
+        android:textColor="@color/white"
+    app:layout_constraintWidth_percent="0.5"
+    app:layout_constraintHeight_percent="0.45"
+    app:layout_constraintTop_toBottomOf="@id/columna1_fila2"
+    app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/columna2_fila1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/orange"
+    android:text="20%-50%"
+    android:gravity="center"
+        android:textColor="@color/white"
+    app:layout_constraintWidth_percent="0.5"
+    app:layout_constraintHeight_percent="0.2"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toEndOf="@id/columna1_fila1" />
+
+    <TextView
+        android:id="@+id/columna2_fila2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/maroon"
+    android:text="10%-50%"
+    android:gravity="center"
+        android:textColor="@color/white"
+    app:layout_constraintWidth_percent="0.5"
+    app:layout_constraintHeight_percent="0.1"
+    app:layout_constraintTop_toBottomOf="@id/columna2_fila1"
+    app:layout_constraintStart_toEndOf="@id/columna1_fila2" />
+
+    <TextView
+        android:id="@+id/columna2_fila3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/purple_500"
+    android:text="70%-50%"
+    android:gravity="center"
+        android:textColor="@color/white"
+    app:layout_constraintWidth_percent="0.5"
+    app:layout_constraintHeight_percent="0.7"
+    app:layout_constraintTop_toBottomOf="@id/columna2_fila2"
+    app:layout_constraintStart_toEndOf="@id/columna1_fila3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

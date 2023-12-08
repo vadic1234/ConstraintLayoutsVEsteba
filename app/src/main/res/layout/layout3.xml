@@ -1,11 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0000FF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical"
     android:id="@+id/layout3">
     <!-- Inserta aqui el codi XML del teu Layout -->
+    <View
+        android:id="@+id/tv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </View>
+
+    <TextView
+        android:id="@+id/tv_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="12"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="0"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="1"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="30"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="2"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="60"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="3"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="90"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="4"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="120"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="5"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="150"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="6"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="180"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="7"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="210"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="8"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="240"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="9"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="270"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="10"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="300"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/tv_13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textSize="20dp"
+        android:text="11"
+        app:layout_constraintCircle="@id/tv_1"
+        app:layout_constraintCircleAngle="330"
+        app:layout_constraintCircleRadius="100dp"
+        tools:ignore="MissingConstraints" />
+
+
 
     <!-- Final del codi XML del teu Layout -->
 </androidx.constraintlayout.widget.ConstraintLayout>
